@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+    input {
+      padding: 8px;
+      width: 300px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Customer Info Form</h2>
+  <form id="clientForm">
+    <label for="name">Customer Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="contact">Contact Number:</label>
+    <input type="text" id="contact" name="contact" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="message" id="msg"></div>
+
+  <script>
+    document.getElementById("clientForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contact").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbwNnC3RvpDTPFBsVJCrFl25_mUJRTSZ8fggBSw_kCM_pBLswZTH5PL2HcjhBAJmlLkq/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: name, contact: contact })
+      });
+
+      document.getElementById("msg").innerText = "Form submitted!";
+      document.getElementById("clientForm").reset();
+    });
+  </script>
+</body>
+</html>
