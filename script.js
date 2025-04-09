@@ -6,7 +6,7 @@ document.getElementById("clientForm").addEventListener("submit", function(e) {
 
   const data = {
     name: name,
-    phone: phone
+    Contact: Contact
   };
 
   fetch("https://script.google.com/macros/s/AKfycbwNnC3RvpDTPFBsVJCrFl25_mUJRTSZ8fggBSw_kCM_pBLswZTH5PL2HcjhBAJmlLkq/exec", {
