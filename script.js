@@ -17,8 +17,8 @@ document.getElementById("clientForm").addEventListener("submit", function(e) {
     }
   })
   .then(res => res.text())
-  .then(data => {
-    document.getElementById("msg").innerText = data;
+  .then(response => {
+    document.getElementById("msg").innerText = response;
     document.getElementById("clientForm").reset();
   })
   .catch(err => {
